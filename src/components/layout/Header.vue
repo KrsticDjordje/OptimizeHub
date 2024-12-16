@@ -13,8 +13,8 @@
                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
             </svg>
           </div>
-          <h1 class="text-2xl font-bold" :class="[scrolled && !isMenuOpen ? 'text-gray-900' : 'text-white']">FileTools
-            Pro</h1>
+          <h1 class="text-2xl font-bold" :class="[scrolled && !isMenuOpen ? 'text-gray-900' : 'text-white']">OptimizeHub
+          </h1>
         </div>
 
         <!-- Desktop Navigation -->
@@ -30,7 +30,7 @@
               </a>
             </li>
             <li>
-              <a href="#start"
+              <a href="#tools"
                 class="px-4 py-2 rounded-lg bg-gradient-to-r from-violet-600 to-pink-500 text-white font-medium hover:opacity-90 transition shadow-lg">
                 Get Started
               </a>
@@ -73,7 +73,7 @@
                     </a>
                   </li>
                   <li class="pt-6">
-                    <a href="#start" @click="closeMenu"
+                    <a href="#tools" @click="closeMenu"
                       class="inline-block px-8 py-4 text-lg rounded-xl bg-white text-violet-600 font-medium hover:bg-white/90 transition shadow-lg">
                       Get Started
                     </a>

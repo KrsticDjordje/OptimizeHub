@@ -198,7 +198,7 @@ const features = [
           <div class="text-center mb-16">
             <h2 class="text-3xl font-bold text-gray-900 mb-4">Support Our Project</h2>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-              FileTools Pro is open for everyone. Your contribution helps us maintain and improve the tools.
+              OptimizeHub Pro is open for everyone. Your contribution helps us maintain and improve the tools.
             </p>
           </div>
 

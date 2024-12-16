@@ -20,7 +20,7 @@ const convertFile = async () => {
   if (!file.value) return;
 
   isConverting.value = true;
-  conversionStatus.value = 'Konverzija u toku...';
+  conversionStatus.value = 'Conversion in progress...';
   conversionProgress.value = 0;
 
   try {
@@ -46,11 +46,11 @@ const convertFile = async () => {
         };
       });
 
-      conversionStatus.value = 'Konverzija uspešno završena!';
+      conversionStatus.value = 'Conversion completed successfully.!';
     }
   } catch (error) {
-    console.error('Konverzija nije uspela:', error);
-    conversionStatus.value = 'Greška pri konverziji';
+    console.error('Conversion failed:', error);
+    conversionStatus.value = 'Conversion error';
   } finally {
     isConverting.value = false;
   }
@@ -72,7 +72,7 @@ const buttonText = computed(() => {
   if (isConverting.value) {
     return 'Konverzija u toku...';
   }
-  return convertedFile.value ? 'Konvertuj novi fajl' : 'Konvertuj fajl';
+  return convertedFile.value ? 'Convert new file' : 'Convert a file';
 });
 </script>
 
@@ -122,10 +122,10 @@ const buttonText = computed(() => {
       </div>
 
       <div v-if="convertedFile" class="bg-white p-6 rounded-xl shadow-sm space-y-4">
-        <h3 class="text-lg font-semibold text-gray-800">Konverzija završena</h3>
+        <h3 class="text-lg font-semibold text-gray-800">Conversion complete</h3>
         <div class="bg-green-50 p-4 rounded-lg">
           <p class="text-green-800">
-            Fajl je uspešno konvertovan u {{ targetFormat.toUpperCase() }} format
+            The file has been successfully converted to {{ targetFormat.toUpperCase() }} format
           </p>
         </div>
 
@@ -135,7 +135,7 @@ const buttonText = computed(() => {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>
-          <span>Preuzmi konvertovani fajl</span>
+          <span>Download the converted file</span>
         </button>
       </div>
 

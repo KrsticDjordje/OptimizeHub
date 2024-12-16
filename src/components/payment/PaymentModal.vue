@@ -14,11 +14,11 @@ const emit = defineEmits(['close']);
 const selectedCurrency = ref('EUR');
 
 const paymentDetails = {
-    name: "Djordje Krstic",
+    name: "Đorđe Krstić",
     bank: "Raiffeisen Banka",
     accountNumber: "265-0000007149733-30",
     swift: "RZBSRSBG",
-    purpose: "Donation for FileTools Pro"
+    purpose: "Donation for OptimizeHub"
 };
 
 // Kursna lista (približne vrednosti)

@@ -41,20 +41,20 @@
       </div>
 
       <div v-if="compressionStats" class="bg-white p-6 rounded-xl shadow-sm space-y-4">
-        <h3 class="text-lg font-semibold text-gray-800">Rezultat kompresije</h3>
+        <h3 class="text-lg font-semibold text-gray-800">Compression result</h3>
         <div class="grid grid-cols-2 gap-4">
           <div class="bg-gray-50 p-4 rounded-lg">
-            <p class="text-sm text-gray-600">Originalna veličina</p>
+            <p class="text-sm text-gray-600">Original size</p>
             <p class="text-xl font-semibold text-gray-800">{{ compressionStats.originalSize }} MB</p>
           </div>
           <div class="bg-gray-50 p-4 rounded-lg">
-            <p class="text-sm text-gray-600">Nova veličina</p>
+            <p class="text-sm text-gray-600">New size</p>
             <p class="text-xl font-semibold text-gray-800">{{ compressionStats.compressedSize }} MB</p>
           </div>
         </div>
         <div class="bg-green-50 p-4 rounded-lg">
           <p class="text-green-800">
-            Smanjeno za {{ compressionStats.savedPercentage }}%
+            Reduced by {{ compressionStats.savedPercentage }}%
           </p>
         </div>
 
@@ -64,7 +64,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>
-          <span>Preuzmi kompresovani fajl</span>
+          <span>Download compressed file</span>
         </button>
       </div>
 
@@ -180,26 +180,26 @@ const compressFile = async () => {
     let compressed;
 
     if (file.value.type.startsWith('image/')) {
-      compressionStatus.value = 'Kompresija slike...';
+      compressionStatus.value = 'Image compression...';
       compressed = await compressImage(file.value);
     }
     else if (file.value.type === 'application/pdf') {
-      compressionStatus.value = 'Kompresija PDF-a...';
+      compressionStatus.value = 'PDF compression...';
       compressed = await compressPDF(file.value);
     }
     else if (file.value.type.startsWith('video/')) {
-      compressionStatus.value = 'Kompresija videa...';
+      compressionStatus.value = 'Video compression...';
       compressed = await compressVideo(file.value);
     }
 
     compressedFile.value = compressed;
     compressionStats.value = calculateCompressionStats(file.value.size, compressed.size);
 
-    compressionStatus.value = 'Kompresija uspešno završena!';
+    compressionStatus.value = 'Compression completed successfully!';
     compressionProgress.value = 100;
   } catch (error) {
-    console.error('Greška pri kompresiji:', error);
-    compressionStatus.value = 'Greška pri kompresiji fajla';
+    console.error('Compression error:', error);
+    compressionStatus.value = 'File compression error';
   } finally {
     isCompressing.value = false;
   }
@@ -207,8 +207,8 @@ const compressFile = async () => {
 
 const buttonText = computed(() => {
   if (isCompressing.value) {
-    return 'Kompresija u toku...';
+    return 'Compression in progress...';
   }
-  return compressionStats.value ? 'Kompresuj novi fajl' : 'Kompresuj fajl';
+  return compressionStats.value ? 'Compress new file' : 'Compress a file';
 });
 </script>
